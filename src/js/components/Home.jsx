@@ -6,16 +6,16 @@ import Listtotal from "./listtotal.jsx";
 const Home = () => {
   const [inputValue, setInputValue] = useState("");
   const [tasks, setTasks] = useState([
-    "Clean up the blood",
-    "Do another sacrifice",
-    "Get milk",
+    { text: "Clean up the blood", done: false },
+    { text: "Do another sacrifice", done: false },
+    { text: "Get milk", done: false },
   ]);
 
   const todoAdder = (event) => {
     if (event.key === "Enter") {
       const currentTasks = [...tasks];
       console.log(currentTasks);
-      currentTasks.unshift(inputValue);
+      currentTasks.unshift({ text: inputValue, done: false });
       setTasks(currentTasks);
       setInputValue("");
     }
@@ -54,27 +54,14 @@ const Home = () => {
       <div className="flex-grow-1"></div>
 
       <div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
         
-          <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 border-top" style={{ backdropFilter: "blur(10px)" }}>
-            <div className="col-md-4 d-flex align-items-center">
-              <a
-                href="/"
-                className="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1"
-                aria-label="Bootstrap"
-              ></a>
-              <span className="mb-3 mb-md-0 text-body-secondary">
-                © 2025 Phoenix Reynolds
-              </span>
-            </div>
-            <ul className="nav col-md-4 justify-content-end list-unstyled d-flex">
-              <li className="ms-3"></li>
-            </ul>
-          </footer>
-        
+
+        <footer className="d-flex justify-content-center align-items-center py-3 border-top" style={{ backdropFilter: "blur(1px)", height: "12px" }}>
+          <span className="mb-2 text-body-secondary">
+            © 2025 Phoenix Reynolds
+          </span>
+        </footer>
+
       </div>
     </div>
   );
